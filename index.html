@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="30-дневная программа для набора мышечной массы: грудь, руки, спина — дома с гантелями. Питание 3500+ ккал, вода 4 л/день.">
+  <title>MuscleFuel — Набор массы</title>
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&family=Exo+2:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="manifest" href="/manifest.json" />
+  <link rel="icon" href=",">
+  <meta name="theme-color" content="#ff0000">
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js');
+      });
+    }
+  </script>
+</head>
+<body>
+  <header>
+    <h1>MuscleFuel 💪🔥</h1>
+    <p>30 дней на массу: грудь, руки, спина + 3500+ ккал и 4 л воды</p>
+  </header>
+
+  <!-- Прогресс и вода -->
+  <div class="progress-container">
+    <div id="progressBar"></div>
+  </div>
+  <div class="water-tracker">
+    <h3>💧 Вода: <span id="waterCount">0</span>/16 стаканов</h3>
+    <div class="water-controls">
+      <button id="waterMinus">-</button>
+      <button id="waterPlus">+</button>
+      <button id="waterReset">Сбросить</button>
+    </div>
+  </div>
+
+  <main>
+    <div class="controls">
+      <button id="prevBtn">◀ Назад</button>
+      <span id="dayCounter">День 1</span>
+      <button id="nextBtn">Вперёд ▶</button>
+      <button id="markDoneBtn">✅ Выполнено</button>
+      <button id="resetBtn">🗑️ Сбросить всё</button>
+    </div>
+
+    <section id="workouts"></section>
+    <section id="meals"></section>
+  </main>
+
+  <footer>
+    <p>Создано для тех, кто строит силу ❤️ | 3500+ ккал • 4 л воды • Масса</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
