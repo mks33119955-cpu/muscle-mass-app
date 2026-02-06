@@ -120,7 +120,71 @@ h2, h3, h4 {
 }
 
 ul { margin: 12px 0; padding-left: 20px; }
-li { margin: 10px 0; }
+li { margin: 10px 0; position: relative; }
+
+.how-btn, .recipe-btn {
+  margin-left: 12px;
+  background: rgba(255, 0, 0, 0.2);
+  border: 1px solid var(--accent-red);
+  color: var(--accent-red);
+  padding: 4px 8px;
+  font-size: 0.8rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: 'Rajdhani', sans-serif;
+}
+
+.how-btn:hover, .recipe-btn:hover {
+  background: rgba(255, 0, 0, 0.4);
+  box-shadow: 0 0 8px var(--accent-red);
+}
+
+.how-modal, .recipe-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.how-content, .recipe-content {
+  background: #111;
+  border: 2px solid var(--accent-red);
+  border-radius: 16px;
+  padding: 24px;
+  max-width: 90%;
+  max-height: 80vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 0 20px var(--accent-red);
+}
+
+.close-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: transparent;
+  border: 1px solid #0f0;
+  color: #0f0;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Exo 2', sans-serif;
+}
+
+.close-btn:hover {
+  background: rgba(0, 255, 0, 0.2);
+}
 
 .meal { margin: 12px 0; }
 .meal p { margin-top: 6px; }
@@ -137,4 +201,5 @@ footer {
   h1 { font-size: 1.8rem; }
   .controls, .water-controls { flex-direction: column; gap: 8px; }
   button { width: 100%; }
+  .how-content, .recipe-content { padding: 16px; }
 }
