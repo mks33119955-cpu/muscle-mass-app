@@ -1,4 +1,4 @@
-const CACHE_NAME = 'musclefuel-cache-v' + Date.now();
+const CACHE_NAME = 'musclefuel-pro-v' + Date.now();
 const urlsToCache = ['/', '/css/style.css', '/js/main.js', '/manifest.json'];
 
 self.addEventListener('install', (event) => {
