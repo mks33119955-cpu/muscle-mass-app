@@ -669,3 +669,27 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 });
+
+// ========== ЖИВОЙ ГРАДИЕНТ ФОНА ==========
+function updateBackgroundGradient() {
+  const colors = [
+    'linear-gradient(135deg, #0f0c29, #302b63, #24243e)',
+    'linear-gradient(135deg, #16222A, #3A6073, #16222A)',
+    'linear-gradient(135deg, #232526, #414345, #232526)',
+    'linear-gradient(135deg, #000428, #004e92, #000428)'
+  ];
+  let index = 0;
+  setInterval(() => {
+    document.body.style.background = colors[index];
+    document.body.style.backgroundSize = '400% 400%';
+    document.body.style.animation = 'gradientShift 12s ease infinite';
+    index = (index + 1) % colors.length;
+  }, 12000);
+}
+
+// Запуск после загрузки
+document.addEventListener('DOMContentLoaded', () => {
+  // ... твой существующий код ...
+
+  updateBackgroundGradient(); // ← добавь эту строку в конец блока
+});
