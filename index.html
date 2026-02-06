@@ -1,58 +1,111 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="30-дневная программа для набора мышечной массы: грудь, руки, спина — дома с гантелями. Питание 3400–3800 ккал, вода 4 л/день.">
-  <title>MuscleFuel Pro — Набор массы</title>
-  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&family=Exo+2:wght@700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css" />
-  <link rel="manifest" href="/manifest.json" />
-  <link rel="icon" href=",">
-  <meta name="theme-color" content="#ff0000">
-  <script>
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/sw.js');
-      });
-    }
-  </script>
+  <!-- ... остальное без изменений ... -->
 </head>
 <body>
-  <header>
-    <h1>MuscleFuel Pro 💪🔥</h1>
-    <p>30 дней на массу: грудь, руки, спина + 3400–3800 ккал и 4 л воды</p>
-  </header>
+  <div class="app-container">
+    <header>
+      <h1>MuscleFuel <span class="highlight">Neo</span></h1>
+      <p>30 дней на массу • 3400–3800 ккал • 4 л воды</p>
+    </header>
 
-  <div class="progress-container">
-    <div id="progressBar"></div>
-  </div>
-
-  <div class="water-tracker">
-    <h3>💧 Вода: <span id="waterCount">0</span>/16 стаканов</h3>
-    <div class="water-controls">
-      <button id="waterMinus">-</button>
-      <button id="waterPlus">+</button>
-      <button id="waterReset">Сбросить</button>
+    <!-- Прогресс -->
+    <div class="progress-section">
+      <div class="progress-label">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+        </svg>
+        Прогресс программы
+      </div>
+      <div class="progress-bar-container">
+        <div id="progressBar" class="progress-bar"></div>
+      </div>
     </div>
-  </div>
 
-  <main>
+    <!-- Вода -->
+    <div class="water-section">
+      <div class="water-header">
+        <h3>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="url(#waterGradient)" stroke-width="2">
+            <defs>
+              <linearGradient id="waterGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#00f2fe"/>
+                <stop offset="100%" stop-color="#4facfe"/>
+              </linearGradient>
+            </defs>
+            <path d="M12 2a7 7 0 0 1 7 7c0 2.38-1.19 4.47-3 5.74V22H8v-6.26C6.19 14.47 5 12.38 5 10a7 7 0 0 1 7-7z"/>
+          </svg>
+          Вода сегодня
+        </h3>
+        <span id="waterCount">0</span>/16
+      </div>
+      <div class="water-controls">
+        <button id="waterMinus" class="water-btn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="5" y1="12" x2="19" y2="12"/>
+          </svg>
+        </button>
+        <button id="waterReset" class="water-btn reset">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M2.5 2v6h6M21.5 22v-6h-6"/>
+            <path d="M22 11.5A10 10 0 0 0 12 2a10 10 0 0 0-8.5 4.5"/>
+            <path d="M2 12.5A10 10 0 0 0 12 22a10 10 0 0 0 8.5-4.5"/>
+          </svg>
+        </button>
+        <button id="waterPlus" class="water-btn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="12" y1="5" x2="12" y2="19"/>
+            <line x1="5" y1="12" x2="19" y2="12"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Управление -->
     <div class="controls">
-      <button id="prevBtn">◀ Назад</button>
-      <span id="dayCounter">День 1</span>
-      <button id="nextBtn">Вперёд ▶</button>
-      <button id="markDoneBtn">✅ Выполнено</button>
-      <button id="resetBtn">🗑️ Сбросить всё</button>
+      <button id="prevBtn" class="nav-btn">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="15,18 9,12 15,6"/>
+        </svg>
+      </button>
+      <div class="day-display">
+        <span>День</span>
+        <span id="dayCounter">1</span>
+      </div>
+      <button id="nextBtn" class="nav-btn">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="9,18 15,12 9,6"/>
+        </svg>
+      </button>
     </div>
 
-    <section id="workouts"></section>
-    <section id="meals"></section>
-  </main>
+    <main>
+      <section id="workouts" class="card-section"></section>
+      <section id="meals" class="card-section"></section>
+    </main>
 
-  <footer>
-    <p>Создано с силой и заботой ❤️ | 3400–3800 ккал • 4 л воды • Масса</p>
-  </footer>
+    <div class="footer-actions">
+      <button id="markDoneBtn" class="action-btn primary">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="20,6 9,17 4,12"/>
+        </svg>
+        Выполнено
+      </button>
+      <button id="resetBtn" class="action-btn secondary">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M2.5 2v6h6M21.5 22v-6h-6"/>
+          <path d="M22 11.5A10 10 0 0 0 12 2a10 10 0 0 0-8.5 4.5"/>
+          <path d="M2 12.5A10 10 0 0 0 12 22a10 10 0 0 0 8.5-4.5"/>
+        </svg>
+        Сбросить всё
+      </button>
+    </div>
+
+    <footer>
+      <p>Создано с силой и заботой</p>
+    </footer>
+  </div>
 
   <script src="js/main.js"></script>
 </body>
